@@ -1,15 +1,11 @@
-const express = require("express");
-const controller = require("../controller/spoiler");
-
+'use strict';
+const express = require('express');
 const router = express.Router();
-router.get("/spoilers/:id", controller.buscarUm);
+const spolierController = require('../controller/spoiler');
 
-router.get("/spoilers", controller.buscarTodos);
-
-router.post("/spoilers", controller.criar);
-
-router.put("/spoilers/:id", controller.atualizar);
-
-router.delete("/spoilers/:id", controller.excluir);
+router.get('/spolier', spolierController.get);
+router.post('/', spolierController.post);
+router.put('/:id', spolierController.put);
+router.delete('/', spolierController.delete);
 
 module.exports = router;

@@ -1,30 +1,21 @@
-const http = require("http");
-const express = require("express");
-const status = require("http-status");
+const express = require('express');
+const bodyParser = require('body-parser');
 const spoilersRoute = require("./routes/spoilers");
-const sequelize = require("./database/database");
 
 const app = express();
+const router = express.Router();
 
-app.use(express.json());
+//toda requisição passa pelo bodyParser convertendo para o fomato de json
+app.use(bodyParser.json({
+    limit : "5mb"
+}));
 
-app.use("/api", spoilersRoute);
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
-app.use((request, response, next) => {
-  response.status(status.NOT_FOUND).send();
-});
+app.use("/", spoilersRoute);
 
-app.use((error, request, response, next) => {
-  response.status(status.INTERNAL_SERVER_ERROR).json({ error });
-});
+module.exports = app;
 
-sequelize.sync({ force: true }).then(() => {
-  const port = process.env.PORT || 4000;
-
-  app.set("port", port);
-
-  const server = http.createServer(app);
-
-  server.listen(port);
-});
 

@@ -1,7 +1,7 @@
 const Spoiler = require("../model/spoiler");
 const status = require("http-status");
 
-exports.buscarUm = (request, response, next) => {
+exports.get = (request, response, next) => {
   const id = request.params.id;
 
   Spoiler.findById(id)
@@ -15,7 +15,7 @@ exports.buscarUm = (request, response, next) => {
     .catch(error => next(error));
 };
 
-exports.buscarTodos = (request, response, next) => {
+exports.get = (request, response, next) => {
   let limite = parseInt(request.query.limite || 0);
   let pagina = parseInt(request.query.pagina || 0);
 
@@ -35,7 +35,7 @@ exports.buscarTodos = (request, response, next) => {
     .catch(error => next(error));
 };
 
-exports.criar = (request, response, next) => {
+exports.post = (request, response, next) => {
   const titulo = request.body.titulo;
   const espoliador = request.body.espoliador;
   const descricao = request.body.descricao;
@@ -51,7 +51,7 @@ exports.criar = (request, response, next) => {
     .catch(error => next(error));
 };
 
-exports.atualizar = (request, response, next) => {
+exports.put = (request, response, next) => {
   const id = request.params.id;
 
   const titulo = request.body.titulo;
@@ -80,7 +80,7 @@ exports.atualizar = (request, response, next) => {
     .catch(error => next(error));
 };
 
-exports.excluir = (request, response, next) => {
+exports.delete = (request, response, next) => {
   const id = request.params.id;
 
   Spoiler.findById(id)
