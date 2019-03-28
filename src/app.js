@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const spoilersRoute = require("./routes/spoilers");
+const usuarioRoute = require("./routes/usuarioRoute");
 
 const app = express();
 const router = express.Router();
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-app.use("/", spoilersRoute);
+app.use("/", usuarioRoute);
 
 module.exports = app;
 

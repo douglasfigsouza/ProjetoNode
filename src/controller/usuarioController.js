@@ -1,12 +1,12 @@
-const Spoiler = require("../model/spoiler");
+const Usuario = require("../model/usuarioModel");
 const status = require("http-status");
 
 exports.get = (request, response, next) => {
   const id = request.params.id;
 
-  Spoiler.findById(id)
-    .then(spoiler => {
-      if (spoiler) {
+  Usuario.findById(id)
+    .then(usuario => {
+      if (usuario) {
         response.status(status.OK).send(spoiler);
       } else {
         response.status(status.NOT_FOUND).send();
@@ -28,22 +28,22 @@ exports.get = (request, response, next) => {
   limite = limite > ITENS_POR_PAGINA || limite <= 0 ? ITENS_POR_PAGINA : limite;
   pagina = pagina <= 0 ? 0 : pagina * limite;
 
-  Spoiler.findAll({ limit: limite, offset: pagina })
-    .then(spoilers => {
-      response.send(spoilers);
+  Usuario.findAll({ limit: limite, offset: pagina })
+    .then(usuarios => {
+      response.send(usuarios);
     })
     .catch(error => next(error));
 };
 
 exports.post = (request, response, next) => {
-  const titulo = request.body.titulo;
-  const espoliador = request.body.espoliador;
-  const descricao = request.body.descricao;
+  const Nome = request.body.nome;
+  const Login = request.body.login;
+  const Senha = request.body.senha;
 
-  Spoiler.create({
-    titulo: titulo,
-    espoliador: espoliador,
-    descricao: descricao
+  Usuario.create({
+    Nome: Nome,
+    Login: Login,
+    Senha: Senha
   })
     .then(() => {
       response.status(status.CREATED).send();
@@ -54,18 +54,18 @@ exports.post = (request, response, next) => {
 exports.put = (request, response, next) => {
   const id = request.params.id;
 
-  const titulo = request.body.titulo;
-  const espoliador = request.body.espoliador;
-  const descricao = request.body.descricao;
+  const Nome = request.body.nome;
+  const Login = request.body.login;
+  const Senha = request.body.senha;
 
-  Spoiler.findById(id)
-    .then(spoiler => {
-      if (spoiler) {
-        Spoiler.update(
+  Usuario.findById(id)
+    .then(usuario => {
+      if (usuario) {
+        Usuario.update(
           {
-            titulo: titulo,
-            espoliador: espoliador,
-            descricao: descricao
+            Nome: Nome,
+            Login: Login,
+            Senha: Senha
           },
           { where: { id: id } }
         )
@@ -83,10 +83,10 @@ exports.put = (request, response, next) => {
 exports.delete = (request, response, next) => {
   const id = request.params.id;
 
-  Spoiler.findById(id)
-    .then(spoiler => {
-      if (spoiler) {
-        Spoiler.destroy({
+  Usuario.findById(id)
+    .then(usuario => {
+      if (usuario) {
+        Usuario.destroy({
           where: { id: id }
         })
           .then(() => {
