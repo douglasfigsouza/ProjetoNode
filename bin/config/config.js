@@ -8,8 +8,8 @@ module.exports = {
       name: 'GesAutoDb',
       user:'sa',
       password: 'root',
-      //host: 'DOUGLASDAMA-PC',//empresa
-      host:'DESKTOP-3B6NEP8', //casa
+      host: 'DOUGLASMATA-PC',//empresa
+      //host:'DESKTOP-3B6NEP8', //casa
       port: 1433,
       dialect: 'mssql'
     }

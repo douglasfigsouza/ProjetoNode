@@ -1,7 +1,6 @@
-const Usuario = require("../model/usuario/usuarioModel");
 const status = require("http-status");
-const ValidationContract = require("../validators/fluent-validator");
-const usuarioRepository = require("../repository/usuario/usuarioRepository");
+const ValidationContract = require("../../validators/fluent-validator");
+const usuarioRepository = require("../../repository/usuario/usuarioRepository");
 
 exports.get = async(request, response, next) => {
     id = request.params.id;

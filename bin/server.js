@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 
 //force true cria as tabelas sempre 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     app.set("port", port);
     server.listen(port);
   });

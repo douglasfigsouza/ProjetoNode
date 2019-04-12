@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../../../bin/database/database.js");
 
-const Usuario = sequelize.define("Usuario", {
+const Usuario = sequelize.define("Usuarios", {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -28,7 +28,25 @@ const Usuario = sequelize.define("Usuario", {
     validate: {
       len: [2, 8]
     }
-  }
+  }, 
+  dataCad:{
+    allowNull: false,
+    type: Sequelize.DATE, 
+  }, 
+  dataAlt:{
+    allowNull: false,
+    type: Sequelize.DATE, 
+  }, 
+  usuaCad: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  usuarioAlt: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+}, {
+  timestamps : false
 });
 
 module.exports = Usuario;

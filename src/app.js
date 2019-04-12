@@ -1,6 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const usuarioRoute = require("./routes/usuarioRoute");
+const express = require('express'), 
+    bodyParser = require('body-parser'),
+    mecanicoRoute = require("./routes/mecanicoRoute"),
+    servicoRoute = require("./routes/servicosRoute"),
+    usuarioRoute = require("./routes/usuarioRoute");
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use("/usuario", usuarioRoute);
+app.use("/mecanico", mecanicoRoute);
+app.use("/servico", servicoRoute);
 
 module.exports = app;
 
