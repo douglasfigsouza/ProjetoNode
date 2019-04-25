@@ -8,21 +8,21 @@ const Usuario = sequelize.define("Usuarios", {
     primaryKey: true,
     type: Sequelize.INTEGER
   },
-  Nome: {
+  nome: {
     allowNull: false,
     type: Sequelize.STRING(255),
     validate: {
       len: [2, 255]
     }
   },
-  Login: {
+  login: {
     allowNull: false,
     type: Sequelize.STRING(40),
     validate: {
       len: [2, 40]
     }
   },
-  Senha: {
+  senha: {
     allowNull: false,
     type: Sequelize.STRING(8),
     validate: {
@@ -31,19 +31,23 @@ const Usuario = sequelize.define("Usuarios", {
   }, 
   dataCad:{
     allowNull: false,
-    type: Sequelize.DATE, 
+    type: Sequelize.DATE,
+    defaultValue : Date.now 
   }, 
   dataAlt:{
-    allowNull: false,
+    allowNull: true,
     type: Sequelize.DATE, 
   }, 
   usuaCad: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  usuarioAlt: {
+  usuaAlt: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: true
+  },
+  telefone: {
+    type: Sequelize.STRING(8)
   },
 }, {
   timestamps : false

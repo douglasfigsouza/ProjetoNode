@@ -41,7 +41,7 @@ exports.getAll = async(request, response, next) => {
 
 exports.post = async(request, response, next) => {
   const contract = new ValidationContract();
-  contract.hasMinLen(request.body.Nome, 3, "O nome deve conter pelo menos três caracteres!");
+  contract.hasMinLen(request.body.nome, 3, "O nome deve conter pelo menos três caracteres!");
 
   if(!contract.isValid()){
     response.status(status.BAD_REQUEST).send(contract.errors()).end();
