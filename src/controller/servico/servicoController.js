@@ -1,5 +1,6 @@
 const status = require("http-status");
-const servicoRepository = require("../../repository/servico/servicoRepository");
+const servicoRepository = require("../../repository/servico/servicoRepository"), 
+  servicoService = require("../../service/servicoService/servicoService");
 
 exports.get = async(request, response, next) => {
     id = request.params.id;
@@ -21,7 +22,7 @@ exports.post = async(request, response, next) => {
   }
 
   try {
-      await servicoRepository.post(request.body);    
+      await servicoService.post(request.body);    
       response.status(status.OK).send();
   } catch (error) {
       response.status(status.BAD_REQUEST).send({

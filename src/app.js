@@ -3,6 +3,7 @@ const express = require('express'),
     mecanicoRoute = require("./routes/mecanicoRoute"),
     servicoRoute = require("./routes/servicosRoute"),
     usuarioRoute = require("./routes/usuarioRoute");
+    pecaRoute = require("./routes/pecaRoute");
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({
 app.use("/usuario", usuarioRoute);
 app.use("/mecanico", mecanicoRoute);
 app.use("/servico", servicoRoute);
+app.use("/peca", pecaRoute);
 
 module.exports = app;
 

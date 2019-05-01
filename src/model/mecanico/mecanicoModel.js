@@ -35,7 +35,7 @@ const Mecanico = sequelize.define("Mecanicos", {
   },
   fone: {
     allowNull: true,
-    type: Sequelize.INTEGER
+    type: Sequelize.DECIMAL
   },
   cpf: {
     allowNull: true,
@@ -47,10 +47,11 @@ const Mecanico = sequelize.define("Mecanicos", {
   }, 
   dataCad:{
     allowNull: false,
-    type: Sequelize.DATE
+    type: Sequelize.DATE,
+    defaultValue : Date.now
   }, 
   dataAlt:{
-    allowNull: false,
+    allowNull: true,
     type: Sequelize.DATE
   }, 
   usuaCad: {
@@ -59,7 +60,7 @@ const Mecanico = sequelize.define("Mecanicos", {
   },
   usuarioAlt: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: true
   },
 }, {
   timestamps : false

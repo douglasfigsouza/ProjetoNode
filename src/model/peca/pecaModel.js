@@ -9,11 +9,6 @@ const Peca = sequelize.define("Pecas", {
     primaryKey: true,
     type: Sequelize.INTEGER
   },
-  usuarioId: {
-    type: Sequelize.INTEGER,
-    references: { model: 'Usuarios', key: 'id' },
-      allowNull: false
-  },
   descricao: {
     allowNull: true,
     type: Sequelize.STRING(200),
@@ -31,12 +26,14 @@ const Peca = sequelize.define("Pecas", {
     validate: {
       len: [2, 1000]
     },
-  }, dataCad:{
+  }, 
+  dataCad:{
     allowNull: false,
     type: Sequelize.DATE, 
+    defaultValue : Date.now
   }, 
   dataAlt:{
-    allowNull: false,
+    allowNull: true,
     type: Sequelize.DATE, 
   }, 
   usuaCad: {
@@ -45,7 +42,7 @@ const Peca = sequelize.define("Pecas", {
   },
   usuarioAlt: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: true
   },
 }, {
   timestamps : false

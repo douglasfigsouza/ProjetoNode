@@ -9,16 +9,13 @@ const Servicos = sequelize.define("Servicos", {
     primaryKey: true,
     type: Sequelize.INTEGER
   },
-  usuarioId: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  },
   dataCad:{
     allowNull: false,
     type: Sequelize.DATE, 
+    defaultValue : Date.now
   }, 
   dataAlt:{
-    allowNull: false,
+    allowNull: true,
     type: Sequelize.DATE, 
   }, 
   usuaCad: {
@@ -27,7 +24,7 @@ const Servicos = sequelize.define("Servicos", {
   },
   usuarioAlt: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: true
   },
 }, {
   timestamps : false

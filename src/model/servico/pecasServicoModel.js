@@ -9,11 +9,6 @@ const PecaServico = sequelize.define("PecasServicos", {
     primaryKey: true,
     type: Sequelize.INTEGER
   },
-  usuarioId: {
-    type: Sequelize.INTEGER,
-    references: { model: 'Usuarios', key: 'id' },
-      allowNull: false
-  },
   servicoId: {  
     type: Sequelize.INTEGER,
     references: { model: 'Servicos', key: 'id' },
