@@ -3,7 +3,7 @@ const http = require('http');
 const debug = require('debug')('nodestr:server');
 const sequelize = require("../bin/database/database.js");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 //force true cria as tabelas sempre 
