@@ -4,9 +4,11 @@ const express = require('express'),
     servicoRoute = require("./routes/servicosRoute"),
     usuarioRoute = require("./routes/usuarioRoute");
     pecaRoute = require("./routes/pecaRoute");
+    var cors = require('cors')
 
 const app = express();
 
+app.use(cors());
 //toda requisição passa pelo bodyParser convertendo para o fomato de json
 app.use(bodyParser.json({
     limit : "5mb"

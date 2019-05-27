@@ -4,11 +4,15 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon ./bin/server.js"
+    "start": "nodemon ./bin/server.js",
+    "client": "react-scripts start",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "http-status": "^1.2.0",
     "mssql": "^5.0.0-alpha.1",

@@ -30,7 +30,7 @@ exports.getAll = async(request, response, next) => {
 
     try {
         var data = await usuarioRepository.getAll(limite,pagina);
-        response.status(status.BAD_REQUEST).send(data);
+        response.status(status.OK).send(data);
     } catch (error) {
         response.status(status.BAD_REQUEST).send({
             message : "Falha ao buscar usuarios", 
